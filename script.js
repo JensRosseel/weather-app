@@ -18,15 +18,42 @@
         }
 
         async function displayWeather(){
+            let day = 0
+            let counter = 0;
             let weather = await getWeather();
             console.log(weather);
             let html = '';
 
             weather_charts.innerHTML += '<div class="city">Weather in '+weather.city.name+'</div>';
-            for(let i = 0; i<5; i++){
-                let insert = '<div class="weather-card"><div class="day">'+'</div><div class="temp">'+weather.list[i].main.temp+' &#176;C </div><div class="feels-like">Feels like: '+weather.list[i].main.feels_like+' &#176;C</div><div class="weather">'+weather.list[i].weather[0].description+'</div><div class="humidity">Humidity: '+weather.list[i].main.humidity+'%</div><div class="wind">Wind speed: '+weather.list[i].wind.speed+' m/s</div></div>';
+            for(let i = 0; i<40; i+=8){
+                switch(date.getDay() + counter){
+                    case 1:
+                        day = 'Monday';
+                        break;
+                    case 2:
+                        day = 'Tuesday';
+                        break;
+                    case 3:
+                        day = 'Wednesday';
+                        break;
+                    case 4:
+                        day = 'Thursday';
+                        break;
+                    case 5:
+                        day = 'Friday';
+                        break;
+                    case 6:
+                        day = 'Saturday';
+                        break;
+                    case 7:
+                        day = 'Sunday';
+                        break;
+                }
+                
+                let insert = '<div class="weather-card"><div class="day">'+day+'</div><div class="temp">'+Math.round(weather.list[i].main.temp)+' &#176;C </div><div class="feels-like">Feels like: '+Math.round(weather.list[i].main.feels_like)+' &#176;C</div><div class="weather">'+weather.list[i].weather[0].description+'</div><div class="humidity">Humidity: '+weather.list[i].main.humidity+'%</div><div class="wind">Wind speed: '+weather.list[i].wind.speed+' m/s</div></div>';
 
                 html += insert;
+                counter++;
             }
             weather_charts.innerHTML += html;
         }
