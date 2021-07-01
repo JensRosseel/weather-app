@@ -1,8 +1,20 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .enter{
     text-align: center;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.726);
+    color: white;
+    font-size: 24px;
+}
+.enter input{
+    font-size: 24px;
 }
 .container{
     margin-left: 15%;
@@ -33,7 +45,48 @@ body{
     border-radius: 15px;
     height: 160px;
     width: 160px;
+    background-color: rgba(0, 0, 0, 0.726);
+    color: white;
 }
 .temp{
     font-size: 35px;
+}
+button{
+    
+    border-radius: 100%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.726);
+    color: white;
+    width: 40px;
+    height: 40px;
+}
+button:hover{
+    cursor: pointer;
+}
+@media only screen and (max-width: 1024px){
+    .container{
+        width: 100%;
+        margin: 0px;
+    }
+    .weather-charts{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .weather-card{
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+        padding: 20px;
+    }
+    .city{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        margin-bottom: 0px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .weather-card{
+        width: 80%;
+    }
 }
