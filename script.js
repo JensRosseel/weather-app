@@ -19,14 +19,14 @@
 
         async function displayWeather(){
             let day = 0
-            let counter = 0;
+            let counter = date.getDay();
             let weather = await getWeather();
             console.log(weather);
             let html = '';
 
             weather_charts.innerHTML += '<div class="city">Weather in '+weather.city.name+'</div>';
             for(let i = 0; i<40; i+=8){
-                switch(date.getDay() + counter){
+                switch(counter){
                     case 1:
                         day = 'Monday';
                         break;
@@ -53,7 +53,7 @@
                 let insert = '<div class="weather-card"><div class="day">'+day+'</div><div class="temp">'+Math.round(weather.list[i].main.temp)+' &#176;C </div><div class="feels-like">Feels like: '+Math.round(weather.list[i].main.feels_like)+' &#176;C</div><div class="weather">'+weather.list[i].weather[0].description+'</div><div class="humidity">Humidity: '+weather.list[i].main.humidity+'%</div><div class="wind">Wind speed: '+weather.list[i].wind.speed+' m/s</div></div>';
 
                 html += insert;
-                if(counter==7){
+                if(counter == 7){
                     counter = 1;
                 }else{
                     counter++;
