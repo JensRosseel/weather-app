@@ -1,5 +1,5 @@
 (()=>{
-    document.getElementById("submit").addEventListener("click", function(){
+    const fetchWeather = () => {
         let date = new Date();
         const userCity = document.getElementById("userCity").value;
         let weather_charts = document.querySelector('.weather-charts');
@@ -49,7 +49,14 @@
                     }
                 }
                 weather_charts.innerHTML += html;
-                
+                weather_charts.style.backgroundColor = "rgba(0, 0, 0, 0.726)";
             });
-    })
+    }
+    document.getElementById("userCity").addEventListener("keyup", (e) => {
+        if(e.key === 'Enter'){
+            fetchWeather();
+        }
+    });
+    document.getElementById("submit").addEventListener("click", fetchWeather);
+    
 })();

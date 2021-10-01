@@ -1,5 +1,5 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
     background-image: url(background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,14 +7,33 @@ body{
 .enter{
     text-align: center;
     padding: 20px;
-    border: 1px solid black;
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.726);
     color: white;
-    font-size: 24px;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+}
+.enter label{
+    margin-right: 10px;
 }
 .enter input{
-    font-size: 24px;
+    padding: 5px;
+    border: none;
+    background-color: unset;
+    color: white;
+    font-size: 20px;
+}
+.enter input:focus{
+    outline: none;
+}
+.input-field{
+    padding: 5px;
+    width: 300px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 20px;
 }
 .container{
     margin-left: 15%;
@@ -25,12 +44,13 @@ body{
     display: grid;
     grid-template-columns: repeat(auto);
     margin-top: 5%;
-
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
 }
 .city{
     display: block;
     margin: auto;
-    margin-top: 25px;
     margin-bottom: 25px;
     grid-column-start: 1;
     grid-column-end: 6;
@@ -45,20 +65,16 @@ body{
     border-radius: 15px;
     height: 160px;
     width: 160px;
-    background-color: rgba(0, 0, 0, 0.726);
     color: white;
 }
 .temp{
     font-size: 35px;
 }
 button{
-    
-    border-radius: 100%;
     border: none;
-    background-color: rgba(0, 0, 0, 0.726);
+    background-color: unset;
     color: white;
-    width: 40px;
-    height: 40px;
+    font-size: 20px;
 }
 button:hover{
     cursor: pointer;
@@ -86,6 +102,9 @@ button:hover{
     }
 }
 @media only screen and (max-width: 480px) {
+    .enter{
+        display: block;
+    }
     .weather-card{
         width: 80%;
     }
